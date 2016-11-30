@@ -50,6 +50,20 @@ class Ping::IssueReferenceTest < MiniTest::Test
       end
     end
 
+    should 'extract connect qualifiers' do
+      [
+        'connect to', 'connects to', 'connected to',
+        'connect', 'connects', 'connected'
+      ].each do |q|
+        text = "#{q} #123"
+        issue = extract_first(text)
+
+        assert_equal q, issue.qualifier
+        assert_equal nil, issue.repository
+        assert_equal '123', issue.number
+      end
+    end
+
     should 'extract repository' do
       text = 'codetree/codetree#43'
       issue = extract_first(text)

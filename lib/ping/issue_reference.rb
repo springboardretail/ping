@@ -4,7 +4,8 @@ module Ping
 
     QUALIFIERS = /
       close|closes|closed|fix|fixes|fixed|resolve|resolves|resolved|
-      need|needs|needed|require|requires|required|needed-by
+      need|needs|needed|require|requires|required|needed-by|
+      connect(?:\ to)?|connects(?:\ to)?|connected(?:\ to)?
     /ix
 
     REPOSITORY_NAME = /[a-z0-9][a-z0-9\-]*\/[a-z0-9][a-z0-9\-_]*/ix
